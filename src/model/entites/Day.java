@@ -53,15 +53,17 @@ public class Day {
 		this.night = night;
 	}
 
-	public int getDayOfMonth() {
-		return Dates.dateToCalendar(day).get(Calendar.DAY_OF_MONTH);
+	public Integer getDayOfMonth() {
+		if (this.day != null) {
+			return Dates.dateToCalendar(day).get(Calendar.DAY_OF_MONTH);
+		}
+		return null;
 	}
-
-
 
 	@Override
 	public String toString() {
-		return "Day [" + getDayOfMonth() + ": morning=" + morning + ", afternoon=" + afternoon + ", night=" + night + "]";
+		return "Day [" + String.format("%02d", getDayOfMonth()) + ": morning=" + morning + ", afternoon=" + afternoon + ", night=" + night
+				+ "]";
 	}
 
 }
