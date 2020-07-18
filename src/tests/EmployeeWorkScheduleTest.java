@@ -1,11 +1,7 @@
 package tests;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
-import model.entites.Dates;
 import model.entites.Day;
 import model.entites.DaysOfWeek;
 import model.entites.Employee;
@@ -13,7 +9,6 @@ import model.entites.Employee;
 public class EmployeeWorkScheduleTest {
 
 	public static void main(String[] args) throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		Employee employee1 = new Employee();
 		employee1.setName("Felype");
@@ -39,8 +34,5 @@ public class EmployeeWorkScheduleTest {
 		
 		System.out.println("=========");
 		System.out.println(employee1.getDaySchedule(DaysOfWeek.SATURDAY));
-		
-		
 	}
-
 }

@@ -1,0 +1,70 @@
+EMPLOYEE START
+Felype
+folga#folga#folga
+folga#13:30 às 17:30#18:00 às 21:30
+08:00 às 13:00#folga#folga
+08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+08:00 às 12:00#13:30 às 18:30#folga
+folga#folga#folga
+08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+EMPLOYEE END
+EMPLOYEE START
+Felype
+folga#folga#folga
+folga#13:30 às 17:30#18:00 às 21:30
+08:00 às 13:00#folga#folga
+08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+08:00 às 12:00#13:30 às 18:30#folga
+folga#folga#folga
+08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+EMPLOYEE END
+EMPLOYEE START
+Carlos
+folga#folga#folga
+carlos#13:30 às 17:30#18:00 às 21:30
+folga#folga#folga
+folga#folga#folga
+08:00 às 12:00#13:30 às 18:30#folga
+08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+EMPLOYEE END
+EMPLOYEE START
+Amanda
+afolga#folga#folga
+afolga#13:30 às 17:30#18:00 às 21:30
+a08:00 às 13:00#folga#folga
+a08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+a08:00 às 12:00#13:30 às 18:30#folga
+afolga#folga#folga
+a08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+EMPLOYEE END
+EMPLOYEE START
+Mikaele
+mfolga#folga#folga
+mfolga#13:30 às 17:30#18:00 às 21:30
+m08:00 às 13:00#folga#folga
+m08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+m08:00 às 12:00#13:30 às 18:30#folga
+mfolga#folga#folga
+m08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+EMPLOYEE END
+EMPLOYEE START
+Felype
+afolga#folga#folga
+afolga#13:30 às 17:30#18:00 às 21:30
+a08:00 às 13:00#folga#folga
+a08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+a08:00 às 12:00#13:30 às 18:30#folga
+folga#folga#folga
+a08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+EMPLOYEE END
+EMPLOYEE START
+Felype
+folga#folga#folga
+folga#13:30 às 17:30#18:00 às 21:30
+08:00 às 13:00#folga#folga
+08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+08:00 às 12:00#13:30 às 18:30#folga
+folga#folga#folga
+08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+EMPLOYEE END
