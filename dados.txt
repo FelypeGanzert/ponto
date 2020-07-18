@@ -1,70 +1,36 @@
 EMPLOYEE START
 Felype
+08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+folga#folga#folga
+08:00 às 12:00#13:30 às 18:30#folga
 folga#folga#folga
 folga#13:30 às 17:30#18:00 às 21:30
 08:00 às 13:00#folga#folga
-08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-08:00 às 12:00#13:30 às 18:30#folga
-folga#folga#folga
 08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
 EMPLOYEE END
 EMPLOYEE START
-Felype
+Carla
+c08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
 folga#folga#folga
-folga#13:30 às 17:30#18:00 às 21:30
-08:00 às 13:00#folga#folga
-08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-08:00 às 12:00#13:30 às 18:30#folga
-folga#folga#folga
-08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+c08:00 às 12:00#13:30 às 18:30#folga
+cfolga#folga#folga
+cfolga#13:30 às 17:30#18:00 às 21:30
+c08:00 às 13:00#folga#folga
+c08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
 EMPLOYEE END
 EMPLOYEE START
-Carlos
+Eduardo
+e08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
 folga#folga#folga
-carlos#13:30 às 17:30#18:00 às 21:30
-folga#folga#folga
-folga#folga#folga
-08:00 às 12:00#13:30 às 18:30#folga
-08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
-08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+e08:00 às 12:00#13:30 às 18:30#folga
+efolga#folga#folga
+efolga#13:30 às 17:30#18:00 às 21:30
+e08:00 às 13:00#folga#folga
+e08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
 EMPLOYEE END
-EMPLOYEE START
-Amanda
-afolga#folga#folga
-afolga#13:30 às 17:30#18:00 às 21:30
-a08:00 às 13:00#folga#folga
-a08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-a08:00 às 12:00#13:30 às 18:30#folga
-afolga#folga#folga
-a08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
-EMPLOYEE END
-EMPLOYEE START
-Mikaele
-mfolga#folga#folga
-mfolga#13:30 às 17:30#18:00 às 21:30
-m08:00 às 13:00#folga#folga
-m08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-m08:00 às 12:00#13:30 às 18:30#folga
-mfolga#folga#folga
-m08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
-EMPLOYEE END
-EMPLOYEE START
-Felype
-afolga#folga#folga
-afolga#13:30 às 17:30#18:00 às 21:30
-a08:00 às 13:00#folga#folga
-a08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-a08:00 às 12:00#13:30 às 18:30#folga
-folga#folga#folga
-a08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
-EMPLOYEE END
-EMPLOYEE START
-Felype
-folga#folga#folga
-folga#13:30 às 17:30#18:00 às 21:30
-08:00 às 13:00#folga#folga
-08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-08:00 às 12:00#13:30 às 18:30#folga
-folga#folga#folga
-08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
-EMPLOYEE END
+HOLIDAYS START
+10#feriado#feriado#feriado
+15#null#null#feriado
+17#feriado#feriado#feriado
+20#null#feriado#null
+HOLIDAYS END
