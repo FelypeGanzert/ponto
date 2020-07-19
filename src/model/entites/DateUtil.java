@@ -3,7 +3,7 @@ package model.entites;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Dates {
+public class DateUtil {
 	
 	public static Calendar dateToCalendar(Date date) {
 		Calendar calendar = Calendar.getInstance();

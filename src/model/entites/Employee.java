@@ -3,29 +3,60 @@ package model.entites;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Employee {
 	
-	private String name;
+	private final BooleanProperty selected;
+	private final StringProperty name;
 	private Map<DaysOfWeek, Day> workSchedule  = new HashMap<>();
 	private Map<Integer, Day> days  = new HashMap<>();
 	
-	public Employee() {}
+	public Employee() {
+		this(null, false);
+	}
 	
 	public Employee(String name) {
-		this.name = name;
+		this.selected = new SimpleBooleanProperty(true);
+		this.name = new SimpleStringProperty(name);
+	}
+	
+	public Employee(String name, boolean selected) {
+		this.selected = new SimpleBooleanProperty(selected);
+		this.name = new SimpleStringProperty(name);
 	}
 
 	public Employee(String name, Map<DaysOfWeek, Day> workSchedule) {
-		this.name = name;
+		this.selected = new SimpleBooleanProperty(false);
+		this.name = new SimpleStringProperty(name);
 		this.workSchedule = workSchedule;
 	}
+	
+	public BooleanProperty selectedProperty() {
+		return selected;
+	}
 
-	public String getName() {
+	public void setSelected(boolean selected) {
+		this.selected.set(selected);
+	}
+	
+	public boolean isSelected() {
+		return this.selected.get();
+	}
+
+	public StringProperty nameProperty() {
 		return name;
 	}
 
+	public String getName() {
+		return name.get();
+	}
+
 	public void setName(String name) {
-		this.name = name;
+		this.name.set(name);
 	}
 	
 	public Map<DaysOfWeek, Day> getWorkSchedule() {
@@ -97,5 +128,4 @@ public class Employee {
 			throw new DayException("Error: day " + dayOfMonth + " not found to change.");
 		}
 	}
-
 }

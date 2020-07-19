@@ -1,32 +1,42 @@
 EMPLOYEE START
 Felype
 08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-folga#folga#folga
-08:00 às 12:00#13:30 às 18:30#folga
-folga#folga#folga
-folga#13:30 às 17:30#18:00 às 21:30
 08:00 às 13:00#folga#folga
+08:00 às 12:00#13:30 às 18:30#folga
+folga#13:30 às 17:30#18:00 às 21:30
+folga#folga#folga
 08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+folga#folga#folga
 EMPLOYEE END
 EMPLOYEE START
 Carla
 c08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-folga#folga#folga
-c08:00 às 12:00#13:30 às 18:30#folga
-cfolga#folga#folga
-cfolga#13:30 às 17:30#18:00 às 21:30
 c08:00 às 13:00#folga#folga
+c08:00 às 12:00#13:30 às 18:30#folga
+cfolga#13:30 às 17:30#18:00 às 21:30
+folga#folga#folga
 c08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+cfolga#folga#folga
 EMPLOYEE END
 EMPLOYEE START
-Eduardo
-e08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+Milena das Florestas Sombrias
+08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+08:00 às 13:00#folga#folga
+08:00 às 12:00#13:30 às 18:30#folga
+folga#13:30 às 17:30#18:00 às 21:30
 folga#folga#folga
-e08:00 às 12:00#13:30 às 18:30#folga
-efolga#folga#folga
-efolga#13:30 às 17:30#18:00 às 21:30
-e08:00 às 13:00#folga#folga
-e08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+folga#folga#folga
+EMPLOYEE END
+EMPLOYEE START
+Dom Pedro de Alcantâra Cabral
+c08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
+c08:00 às 13:00#folga#folga
+c08:00 às 12:00#13:30 às 18:30#folga
+cfolga#13:30 às 17:30#18:00 às 21:30
+folga#folga#folga
+c08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
+cfolga#folga#folga
 EMPLOYEE END
 HOLIDAYS START
 10#feriado#feriado#feriado

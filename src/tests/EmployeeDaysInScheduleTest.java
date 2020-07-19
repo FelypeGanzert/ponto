@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.entites.Dates;
+import model.entites.DateUtil;
 import model.entites.Day;
 import model.entites.DaysOfWeek;
 import model.entites.Employee;
@@ -40,7 +40,7 @@ public class EmployeeDaysInScheduleTest {
 
 		// base Month
 		Date baseDate = sdf.parse("01/07/2020");
-		Calendar calDate = Dates.dateToCalendar(baseDate);
+		Calendar calDate = DateUtil.dateToCalendar(baseDate);
 		int lastDayOfMonth = calDate.getActualMaximum(Calendar.DAY_OF_MONTH);
 		// return one day
 		calDate.add(Calendar.DAY_OF_MONTH, -1);
@@ -49,7 +49,7 @@ public class EmployeeDaysInScheduleTest {
 		// dayOfMonth
 		for (Integer i = 1; i <= lastDayOfMonth; i++) {
 			calDate.add(Calendar.DAY_OF_MONTH, 1);
-			Date date = Dates.calendarToDate(calDate);
+			Date date = DateUtil.calendarToDate(calDate);
 			// get the day of the week
 			Integer dayOfWeek = calDate.get(Calendar.DAY_OF_WEEK);
 			// get the informatinons of the work schedule by the day of the week

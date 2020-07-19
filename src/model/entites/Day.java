@@ -55,7 +55,7 @@ public class Day {
 
 	public Integer getDayOfMonth() {
 		if (this.day != null) {
-			return Dates.dateToCalendar(day).get(Calendar.DAY_OF_MONTH);
+			return DateUtil.dateToCalendar(day).get(Calendar.DAY_OF_MONTH);
 		}
 		return null;
 	}
