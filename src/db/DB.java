@@ -5,12 +5,12 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TextField;
 import model.entites.Day;
 import model.entites.DaysOfWeek;
 import model.entites.Employee;
@@ -88,11 +88,13 @@ public class DB {
 		String out = "";
 		out += "EMPLOYEE START\n";
 		out += e.getName() + "\n";
-		Map<DaysOfWeek, Day> schedule = e.getWorkSchedule();
-		for(DaysOfWeek key : schedule.keySet()) {
-			Day day = schedule.get(key);
+		
+		for(int i = 1; i <=7; i++) {
+			DaysOfWeek dayOfWeek = DaysOfWeek.fromInteger(i);
+			Day day = e.getDaySchedule(dayOfWeek);
 			out += day.getMorning() + "#" + day.getAfternoon() + "#" + day.getNight() + "\n";
 		}
+		
 		out += "EMPLOYEE END\n";
 		return out;
 	}

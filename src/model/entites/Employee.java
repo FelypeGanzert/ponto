@@ -16,7 +16,7 @@ public class Employee {
 	private Map<Integer, Day> days  = new HashMap<>();
 	
 	public Employee() {
-		this(null, false);
+		this("", true);
 	}
 	
 	public Employee(String name) {
