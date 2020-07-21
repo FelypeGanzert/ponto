@@ -63,7 +63,6 @@ public class Main extends Application {
 		appController.setEmployeeData(getEmployeeData());
 		appController.setHolidays(getHolidays());
 		appController.setMainApp(this);
-		
 	}
 	
 	@Override
@@ -99,6 +98,11 @@ public class Main extends Application {
 
 	        // Mostra a janela e espera até o usuário fechar.
 	        dialogStage.showAndWait();
+	        
+	        if(employee.getName().length() == 0) {
+	        	getEmployeeData().remove(employee);
+	        }
+	        
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
@@ -106,12 +110,10 @@ public class Main extends Application {
 	
 	public void showHolidayInfo(Holiday holiday) {
 	    try {
-	        // Carrega o arquivo fxml e cria um novo stage para a janela popup.
 	        FXMLLoader loader = new FXMLLoader();
 	        loader.setLocation(getClass().getResource("/view/Holiday.fxml"));
 	        Parent page = loader.load();
 
-	        // Cria o palco dialogStage.
 	        Stage dialogStage = new Stage();
 	        dialogStage.setTitle("Feriado");
 	        dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -121,14 +123,14 @@ public class Main extends Application {
 	        dialogStage.setResizable(false);
 	        page.requestFocus();
 
-	        // Define a holiday no controller
 	        HolidayController controller = loader.getController();
 	        controller.setHolidayData(holiday);
 	        controller.setStage(dialogStage);
 
-	        // Mostra a janela e espera até o usuário fechar.
 	        dialogStage.showAndWait();
-	        
+	        if(holiday.getDayOfMonth() == 0) {
+	        	holidays.remove(holiday);
+	        }
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }

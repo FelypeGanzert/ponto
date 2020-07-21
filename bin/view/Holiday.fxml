@@ -112,12 +112,32 @@
                   </Label>
                </children>
                <padding>
-                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Se em um período tiver os mesmos &quot;feriados/férias&quot; basta usar a - para separar a data de ínicio da útlima data. Exemplo: Férias do dia 10 até o dia 25, então no dia: 10-25" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="13.0" prefWidth="670.0" spacing="20.0">
                <children>
-                  <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleCancelBtn" stylesheets="@../application/application.css" text="Cancelar">
+                  <Label fx:id="lblErrorMessage" textFill="#a80909">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelBtn" stylesheets="@../application/application.css" text="Cancelar">
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="btn-cancel" />
@@ -126,7 +146,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleAddBtn" stylesheets="@../application/application.css" text="Adicionar" textFill="WHITE">
+                  <Button fx:id="btnAdd" defaultButton="true" mnemonicParsing="false" onAction="#handleAddBtn" stylesheets="@../application/application.css" text="Adicionar" textFill="WHITE">
                      <styleClass>
                         <String fx:value="btn" />
                         <String fx:value="btn-confirm" />

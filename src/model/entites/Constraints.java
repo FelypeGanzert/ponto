@@ -11,9 +11,9 @@ public class Constraints {
 		});
 	}
 	
-	public static void setTextFieldIntegerPeriod(TextField txt) {
+	public static void setTextFieldDayPeriod(TextField txt) {
 		txt.textProperty().addListener((obs, oldValue, newValue) -> {
-			if (newValue != null && !newValue.matches("\\d*?\\-?\\d*?")) {
+			if (newValue != null && !newValue.matches("\\d{0,2}|(?:\\d{1,2}-){0,1}\\d{0,2}")) {
 				txt.setText(oldValue);
 			}
 		});

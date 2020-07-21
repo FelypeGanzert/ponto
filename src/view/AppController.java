@@ -31,6 +31,7 @@ public class AppController implements Initializable{
 	@FXML private Button removeHolidays;
 	@FXML private Button addHolidayBtn;
 	
+	
 	private ObservableList<Employee> employeeData;
 	private ObservableList<Holiday> holidays;
 	private Main main;
@@ -98,8 +99,6 @@ public class AppController implements Initializable{
 
 	public void setHolidays(ObservableList<Holiday> holidays) {
 		this.holidays = holidays;
-		
-		
 	}
 	
 }
