@@ -5,27 +5,25 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
-import java.util.TreeMap;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TextField;
 import model.entites.Day;
 import model.entites.DaysOfWeek;
 import model.entites.Employee;
+import model.entites.Holiday;
 
 public class DB {
 	
 	private ObservableList<Employee> employees = FXCollections.observableArrayList();
-	private Map<Integer, Day> holidays = new TreeMap<>();
+	private ObservableList<Holiday> holidays = FXCollections.observableArrayList();
 	private final String path = "dados.txt";
 	
 	public DB(ObservableList<Employee> employees) {
 		this.employees = employees;
 	}
 	
-	public DB(ObservableList<Employee> employees, Map<Integer, Day> holidaysRead) {
+	public DB(ObservableList<Employee> employees, ObservableList<Holiday> holidays) {
 		this.employees = employees;
 		this.holidays = holidays;
 	}
@@ -73,7 +71,7 @@ public class DB {
 							}
 						}
 						Integer dayOfMonth = Integer.parseInt(data[0]);
-						holidays.put(dayOfMonth, new Day(null, data[1], data[2], data[3]));
+						holidays.add(new Holiday(dayOfMonth, data[1], data[2], data[3]));
 						line = br.readLine();
 					}
 				}
@@ -99,16 +97,15 @@ public class DB {
 		return out;
 	}
 	
-	private static String holidayToSave(Map<Integer, Day> holidays) {
+	private static String holidayToSave(ObservableList<Holiday> holidays) {
 		if(holidays.size() == 0) {
 			return "";
 		}
 		String out = "";
 		out += "HOLIDAYS START\n";
-		for(Integer key : holidays.keySet()) {
-			out += key + "#";
-			Day day = holidays.get(key);
-			out += day.getMorning() + "#" + day.getAfternoon() + "#" + day.getNight() + "\n";
+		for(Holiday h : holidays) {
+			out += h.getDayOfMonth() + "#";
+			out += h.getMorning() + "#" + h.getAfternoon() + "#" + h.getNight() + "\n";
 		}
 		out += "HOLIDAYS END\n";
 		return out;
@@ -122,14 +119,12 @@ public class DB {
 		this.employees = employees;
 	}
 
-	public Map<Integer, Day> getHolidays() {
+	public ObservableList<Holiday> getHolidays() {
 		return holidays;
 	}
 
-	public void setHolidays(Map<Integer, Day> holidays) {
+	public void setHolidays(ObservableList<Holiday> holidays) {
 		this.holidays = holidays;
 	}
 	
-	
-
 }

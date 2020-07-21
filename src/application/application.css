@@ -1,1 +1,18 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.btn{
+	-fx-background-radius: 20px;
+	-fx-border-radius: 20px;
+	-fx-cursor: hand;
+	-fx-padding: 5px 15px 5px 15px;
+}
+
+.btn:hover{
+	-fx-opacity: 0.8;
+}
+
+.btn-cancel{
+	-fx-border-color:  #EC0000;
+}
+
+.btn-confirm{
+	-fx-background-color:  #5cb85c;
+}

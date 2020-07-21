@@ -63,6 +63,9 @@ public class EmployeeScheduleController implements Initializable {
 			String morning = ((TextField) getNodeFromGridPane(gridContainer, i+1, 1)).getText();
 			String afternoon = ((TextField) getNodeFromGridPane(gridContainer, i+1, 2)).getText();
 			String night = ((TextField) getNodeFromGridPane(gridContainer, i+1, 3)).getText();
+			if(morning.equals("")){morning = " ";}
+			if(afternoon.equals("")){afternoon = " ";}
+			if(night.equals("")){night = " ";};
 			Day day = new Day();
 			day.setMorning(morning);
 			day.setAfternoon(afternoon);
@@ -76,13 +79,11 @@ public class EmployeeScheduleController implements Initializable {
 			}
 		}
 		this.dialogStage.close();
-		Main.db.saveData();
 	}
 	
 	public void handleRemoveBtn(ActionEvent event) {
 		Main.getEmployeeData().remove(employee);
 		this.dialogStage.close();
-		Main.db.saveData();
 	}
 
 	public void setStage(Stage dialogStage) {

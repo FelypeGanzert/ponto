@@ -19,18 +19,16 @@ c08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
 c08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
 EMPLOYEE END
 EMPLOYEE START
-Ótabvio Siqueira Lacerda Braga
-1#13:30 às 18:30#7
-2#folga#6
-3#folga#5
-4#folga#4
-5#13:30 às 17:30#3
-6#13:30 às 17:30#2
-7#13:30 às 18:00#1
+Milena
+08:30 às 12:00#folga#folga
+folga#folga#folga
+folga#folga#folga
+folga#13:30 às 17:30#18:00 às 21:00
+08:30 às 12:00#13:30 às 17:30# 
+ # # 
+08:00 às 12:00# # 
 EMPLOYEE END
 HOLIDAYS START
-10#feriado#feriado#feriado
-15#null#null#feriado
-17#feriado#feriado#feriado
-20#null#feriado#null
+1#feriado#null#feriado
+10#feriado#feriado#null
 HOLIDAYS END

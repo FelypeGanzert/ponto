@@ -12,22 +12,29 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.entites.Employee;
+import model.entites.Holiday;
 import view.AppController;
 import view.EmployeeScheduleController;
+import view.HolidayController;
 
 public class Main extends Application {
 	
 	private Stage primaryStage;
 	private static ObservableList<Employee> employeeData = FXCollections.observableArrayList();
+	private static ObservableList<Holiday> holidays = FXCollections.observableArrayList();
 	public static DB db;
 	
 	public Main() {
-		Main.db = new DB(employeeData);
+		Main.db = new DB(employeeData, holidays);
 		db.getData();
 	}
 	
 	public static ObservableList<Employee> getEmployeeData(){
 		return employeeData;
+	}
+	
+	public static ObservableList<Holiday> getHolidays(){
+		return holidays;
 	}
 	
 	public static void main(String[] args) {
@@ -54,10 +61,14 @@ public class Main extends Application {
 		
 		AppController appController = loader.getController();
 		appController.setEmployeeData(getEmployeeData());
+		appController.setHolidays(getHolidays());
 		appController.setMainApp(this);
 		
-		//showEmployeeSchedule(getEmployeeData().get(2));
-		
+	}
+	
+	@Override
+	public void stop() {
+		db.saveData();
 	}
 	
 	public Stage getPrimaryStage() {
@@ -92,5 +103,36 @@ public class Main extends Application {
 	        e.printStackTrace();
 	    }
 	}
+	
+	public void showHolidayInfo(Holiday holiday) {
+	    try {
+	        // Carrega o arquivo fxml e cria um novo stage para a janela popup.
+	        FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(getClass().getResource("/view/Holiday.fxml"));
+	        Parent page = loader.load();
+
+	        // Cria o palco dialogStage.
+	        Stage dialogStage = new Stage();
+	        dialogStage.setTitle("Feriado");
+	        dialogStage.initModality(Modality.WINDOW_MODAL);
+	        dialogStage.initOwner(primaryStage);
+	        Scene scene = new Scene(page);
+	        dialogStage.setScene(scene);
+	        dialogStage.setResizable(false);
+	        page.requestFocus();
+
+	        // Define a holiday no controller
+	        HolidayController controller = loader.getController();
+	        controller.setHolidayData(holiday);
+	        controller.setStage(dialogStage);
+
+	        // Mostra a janela e espera até o usuário fechar.
+	        dialogStage.showAndWait();
+	        
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
 
 }

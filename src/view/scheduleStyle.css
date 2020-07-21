@@ -1,9 +1,0 @@
-.btn{
-	-fx-background-radius: 20px;
-	-fx-border-radius: 20px;
-	-fx-cursor: hand;
-}
-
-.btn:hover{
-	-fx-opacity: 0.8;
-}
