@@ -20,12 +20,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.image.ImageView;
 import model.entites.Constraints;
 import model.entites.DateUtil;
 import model.entites.Employee;
 import model.entites.Holiday;
 
 public class AppController implements Initializable{
+	@FXML private ImageView logoImgView;
+	
 	@FXML private TableView<Employee> tableEmployees;
 	@FXML private TableColumn<Employee, Boolean> selectEmployee;
 	@FXML private TableColumn<Employee, String> nameEmployee;
@@ -55,7 +58,7 @@ public class AppController implements Initializable{
 	public AppController() {}
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize(URL location, ResourceBundle resources) {		
 		nameEmployee.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 		selectEmployee.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
 		selectEmployee.setCellFactory(CheckBoxTableCell.forTableColumn(selectEmployee));

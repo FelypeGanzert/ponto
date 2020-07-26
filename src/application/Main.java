@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.entites.DateUtil;
@@ -77,6 +78,7 @@ public class Main extends Application {
 		this.primaryStage.setTitle("Ponto dos Funcionários");
 		this.primaryStage.setScene(scene);
 		this.primaryStage.setResizable(false);
+		this.primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.jpg")));
 		this.primaryStage.show();
 		root.requestFocus();
 
@@ -127,6 +129,7 @@ public class Main extends Application {
 			controller.setStage(dialogStage);
 
 			// Mostra a janela e espera até o usuário fechar.
+			dialogStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.jpg")));
 			dialogStage.showAndWait();
 
 			if (employee.getName().length() == 0) {
@@ -156,7 +159,7 @@ public class Main extends Application {
 			HolidayController controller = loader.getController();
 			controller.setHolidayData(holiday);
 			controller.setStage(dialogStage);
-
+			dialogStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.jpg")));
 			dialogStage.showAndWait();
 			if (holiday.getDayOfMonth() == 0) {
 				holidays.remove(holiday);

@@ -28,9 +28,3 @@ folga#13:30 às 17:30#18:00 às 21:00
  # # 
 08:00 às 12:00# # 
 EMPLOYEE END
-HOLIDAYS START
-2#feriado#férias#null
-3#feriado#férias#null
-4#feriado#férias#null
-5#feriado#férias#null
-HOLIDAYS END
