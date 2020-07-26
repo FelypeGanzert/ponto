@@ -2,18 +2,26 @@ package view;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import application.Main;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import model.entites.Constraints;
+import model.entites.DateUtil;
 import model.entites.Employee;
 import model.entites.Holiday;
 
@@ -30,6 +38,8 @@ public class AppController implements Initializable{
 	@FXML private TableColumn<Holiday, Boolean> selectHoliday;
 	@FXML private Button removeHolidays;
 	
+	@FXML private ChoiceBox<String> monthsChoiceBox;
+	@FXML private TextField yearTxt;
 	@FXML private Button generateBtn;
 	
 	@FXML private Button addHolidayBtn;
@@ -37,6 +47,9 @@ public class AppController implements Initializable{
 	
 	private ObservableList<Employee> employeeData;
 	private ObservableList<Holiday> holidays;
+	private ObservableList<String> months = FXCollections.observableArrayList();
+	private final String[] monthsArray = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+			"Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
 	private Main main;
 	
 	public AppController() {}
@@ -58,7 +71,16 @@ public class AppController implements Initializable{
 		dayHoliday.setCellValueFactory(cellData -> cellData.getValue().getDayOfMonthProperty());
 		nameHoliday.setCellValueFactory(cellData -> cellData.getValue().getNameProperty());
 		selectHoliday.setCellValueFactory(cellData -> cellData.getValue().getSelectedProperty());
-		selectHoliday.setCellFactory(CheckBoxTableCell.forTableColumn(selectHoliday));		
+		selectHoliday.setCellFactory(CheckBoxTableCell.forTableColumn(selectHoliday));
+		
+		Date now = new Date();
+		months.addAll(monthsArray);
+		monthsChoiceBox.setItems(months);
+		String nextMonth = monthsArray[DateUtil.dateToCalendar(now).get(Calendar.MONTH)+1];
+		monthsChoiceBox.setValue(nextMonth);
+		
+		Constraints.setTextFieldIntegerYear(yearTxt);
+		yearTxt.setText(Integer.toString(DateUtil.dateToCalendar(now).get(Calendar.YEAR)));
 	};
 	
 	public void handleEditBtn(ActionEvent event) {
@@ -105,7 +127,10 @@ public class AppController implements Initializable{
 	}
 	
 	public void handleGenerateHolidayBtn(ActionEvent event) {
-		this.main.generatePoints();
+		String monthYear =  this.monthsChoiceBox.getValue() + "/" + this.yearTxt.getText();
+		List<String> monthsIndex = new ArrayList<String>();
+		monthsIndex.addAll(Arrays.asList(monthsArray));
+		this.main.generatePoints(monthYear, monthsIndex.indexOf(this.monthsChoiceBox.getValue())+1, Integer.parseInt(this.yearTxt.getText()));
 	}
 	
 	

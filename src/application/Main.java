@@ -48,7 +48,7 @@ public class Main extends Application {
 			alert.setContentText(dbExc.getMessage());
 			alert.showAndWait();
 		}
-		excelApache = new ExcelApache(holidays);
+		excelApache = new ExcelApache();
 	}
 
 	public static ObservableList<Employee> getEmployeeData() {
@@ -166,11 +166,18 @@ public class Main extends Application {
 		}
 	}
 
-	public void generatePoints() {
-		System.out.println("Starting generating");
+	public void generatePoints(String monthYear, int monthIndex, int year) {
+		Alert alertProcessing = new Alert(AlertType.INFORMATION);
+		alertProcessing.setTitle("Processando");
+		alertProcessing.setHeaderText("Aguarde");
+		alertProcessing.setContentText("Está sendo gerado.");
+		alertProcessing.show();
 		getEmployeeData().forEach(e -> {
 			try {
-				putDaysInEmployee(e, getHolidays());
+				if(e.isSelected()) {
+					putDaysInEmployee(e, getHolidays(), monthIndex, year);
+					excelApache.createSheetToEmployee(e, monthYear.toLowerCase());
+				}
 			} catch (ParseException e1) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setTitle("Erro");
@@ -178,10 +185,7 @@ public class Main extends Application {
 				alert.setContentText("Erro durante a lógica de atribuir os dias: " + e1.getMessage());
 				alert.show();
 			}
-		});
-		
-		excelApache.createSheetToEmployee(getEmployeeData().get(0), "julho/2020");
-		
+		});		
 		try {
 			excelApache.saveToFile();
 		} catch (ExcelException e1) {
@@ -191,14 +195,19 @@ public class Main extends Application {
 			alert.setContentText(e1.getMessage());
 			alert.show();
 		}
-		System.out.println("Generated");
 		excelApache.createNewWorkbook();
+		alertProcessing.close();
+		Alert alertDone = new Alert(AlertType.INFORMATION);
+		alertDone.setTitle("Concluído");
+		alertDone.setHeaderText("Concluído");
+		alertDone.setContentText("As folhas de ponto foram geradas com sucesso.");
+		alertDone.show();
 	}
 
-	private void putDaysInEmployee(Employee employee, ObservableList<Holiday> holidays) throws ParseException {
+	private void putDaysInEmployee(Employee employee, ObservableList<Holiday> holidays, int monthIndex, int year) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		// base Month
-		Date baseDate = sdf.parse("01/07/2020");
+		Date baseDate = sdf.parse("01" + "/" + monthIndex + "/" + year);
 		Calendar calDate = DateUtil.dateToCalendar(baseDate);
 		int lastDayOfMonth = calDate.getActualMaximum(Calendar.DAY_OF_MONTH);
 		// return one day
