@@ -29,6 +29,9 @@ public class AppController implements Initializable{
 	@FXML private TableColumn<Holiday, String> nameHoliday;
 	@FXML private TableColumn<Holiday, Boolean> selectHoliday;
 	@FXML private Button removeHolidays;
+	
+	@FXML private Button generateBtn;
+	
 	@FXML private Button addHolidayBtn;
 	
 	
@@ -100,5 +103,10 @@ public class AppController implements Initializable{
 	public void setHolidays(ObservableList<Holiday> holidays) {
 		this.holidays = holidays;
 	}
+	
+	public void handleGenerateHolidayBtn(ActionEvent event) {
+		this.main.generatePoints();
+	}
+	
 	
 }

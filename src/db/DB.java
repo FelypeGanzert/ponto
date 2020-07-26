@@ -77,8 +77,8 @@ public class DB {
 				}
 				line = br.readLine();
 			}			
-		}catch(IOException e) {
-			throw new DBException("Cannot get data. Error: " + e.getMessage());
+		}catch(IOException | ArrayIndexOutOfBoundsException e) {
+			throw new DBException("Erro ao ler arquivo com os dados.");
 		}
 	}
 	

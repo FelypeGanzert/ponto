@@ -18,6 +18,14 @@ public class Constraints {
 			}
 		});
 	}
+	
+	public static void setTextFieldDbLimitation(TextField txt) {
+		txt.textProperty().addListener((obs, oldValue, newValue) -> {
+			if (newValue != null && newValue.contains("#")) {
+				txt.setText(oldValue);
+			}
+		});
+	}
 
 	public static void setTextFieldMaxLength(TextField txt, int max) {
 		txt.textProperty().addListener((obs, oldValue, newValue) -> {

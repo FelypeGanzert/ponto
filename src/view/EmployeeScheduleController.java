@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.entites.Constraints;
 import model.entites.Day;
 import model.entites.DaysOfWeek;
 import model.entites.Employee;
@@ -53,9 +54,16 @@ public class EmployeeScheduleController implements Initializable {
 					if(morning.equals(" ")) {morning = "";};
 					if(afternoon.equals(" ")) {afternoon = "";};
 					if(night.equals(" ")) {night = "";};
-					((TextField) getNodeFromGridPane(gridContainer, i+1, 1)).setText(morning);
-					((TextField) getNodeFromGridPane(gridContainer, i+1, 2)).setText(afternoon);
-					((TextField) getNodeFromGridPane(gridContainer, i+1, 3)).setText(night);
+					TextField txtMorning = ((TextField) getNodeFromGridPane(gridContainer, i+1, 1));
+					TextField txtAfternoon = ((TextField) getNodeFromGridPane(gridContainer, i+1, 2));
+					TextField txtNight= ((TextField) getNodeFromGridPane(gridContainer, i+1, 3));
+					txtMorning.setText(morning);
+					txtAfternoon.setText(afternoon);
+					txtNight.setText(night);
+					Constraints.setTextFieldDbLimitation(txtMorning);
+					Constraints.setTextFieldDbLimitation(txtAfternoon);
+					Constraints.setTextFieldDbLimitation(txtNight);
+					
 				}
 			}
 			
