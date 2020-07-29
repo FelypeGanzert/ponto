@@ -105,7 +105,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label text="Se no dia todo for feriado preencha os três campos (manhã, tarde e notie). Porém se for somente em um ou outro período, deixe os demais sem preencher" wrapText="true">
+                  <Label text="Se no dia todo for feriado preencha os três campos (manhã, tarde e noite). Porém se for somente em um ou outro período, deixe os demais sem preencher" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
