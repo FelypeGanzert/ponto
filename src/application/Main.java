@@ -179,7 +179,7 @@ public class Main extends Application {
 			try {
 				if(e.isSelected()) {
 					putDaysInEmployee(e, getHolidays(), monthIndex, year);
-					excelApache.createSheetToEmployee(e, monthYear.toLowerCase());
+					excelApache.createSheetToEmployee(e, monthYear.toLowerCase(), monthIndex, year);
 				}
 			} catch (ParseException e1) {
 				Alert alert = new Alert(AlertType.ERROR);

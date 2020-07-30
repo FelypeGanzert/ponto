@@ -5,7 +5,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
@@ -171,7 +174,7 @@ public class ExcelApache {
 		}
 	}
 
-	public void createSheetToEmployee(Employee employee, String monthReference) {
+	public void createSheetToEmployee(Employee employee, String monthReference, int monthIndex, int year) throws ParseException {
 		Sheet sheet = this.wb.createSheet(Integer.toString(this.lastSheetIndex++));
 		setDefaultStyle(sheet);
 		setColumnsWidth(sheet);
@@ -195,8 +198,14 @@ public class ExcelApache {
 		createCellWithAllBorder(thirdRow, 4, "Noite", styleCenter);
 		createCellWithAllBorder(thirdRow, 5, "ASSINATURA", styleCenter);
 		createCellWithAllBorder(thirdRow, 6, "Observações", styleCenter);
-
-		for (int i = 1; i <= 31; i++) {
+		
+		// base Month
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date baseDate = sdf.parse("01" + "/" + monthIndex + "/" + year);
+		Calendar calDate = DateUtil.dateToCalendar(baseDate);
+		int lastDayOfMonth = calDate.getActualMaximum(Calendar.DAY_OF_MONTH);
+		
+		for (int i = 1; i <= lastDayOfMonth; i++) {
 			Day day = employee.getDay(i);
 			if (day != null) {
 				Row row = sheet.createRow(2 + i);
@@ -211,7 +220,8 @@ public class ExcelApache {
 				createCellWithAllBorder(row, 3, afternoon, styleLeft);
 				createCellWithAllBorder(row, 4, night, styleLeft);
 
-				if (morning.contains("à") || afternoon.contains("à") || night.contains("à")) {
+				if (morning.contains("à") || afternoon.contains("à") || night.contains("à") ||
+						morning.contains("À") || afternoon.contains("À") || night.contains("À")) {
 					createCellWithAllBorder(row, 5, "", styleCenter);
 				} else {
 					createCellWithAllBorder(row, 5, "---------------------", styleCenter);
@@ -220,39 +230,48 @@ public class ExcelApache {
 			}
 		}
 
-		Row faultsRow = sheet.createRow(37);
-		createCellWithAllBorder(faultsRow, 0, "Faltas:", borders[1]);
-		createCellWithAllBorder(faultsRow, 1, "_____________", borders[0]);
-		createCellWithAllBorder(faultsRow, 2, "Observações:", borders[0]);
-		createCellWithAllBorder(faultsRow, 3, "", borders[0]);
-		createCellWithAllBorder(faultsRow, 4, "", borders[2]);
+		int secondPartStart = 42;
 
-		Row row2 = sheet.createRow(38);
+		Row secondPartRow = sheet.createRow(secondPartStart-1);
+		createCellWithAllBorder(secondPartRow, 0, "", borders[1]);
+		createCellWithAllBorder(secondPartRow, 1, "", borders[0]);
+		createCellWithAllBorder(secondPartRow, 2, "", borders[0]);
+		createCellWithAllBorder(secondPartRow, 3, "", borders[0]);
+		createCellWithAllBorder(secondPartRow, 4, "", borders[2]);
+
+
+		Row row1 = sheet.createRow(secondPartStart);
+		createCellWithAllBorder(row1, 0, "Faltas:", borders[6]);
+		createCellWithAllBorder(row1, 1, "_____________", borders[8]);
+		createCellWithAllBorder(row1, 2, "Observações:", borders[8]);
+		createCellWithAllBorder(row1, 3, "", borders[8]);
+		createCellWithAllBorder(row1, 4, "", borders[7]);
+
+		Row row2 = sheet.createRow(secondPartStart+1);
 		createCellWithAllBorder(row2, 0, "", borders[6]);
 		createCellWithAllBorder(row2, 4, "", borders[7]);
-		
 
-		Row row3 = sheet.createRow(39);
+		Row row3 = sheet.createRow(secondPartStart+2);
 		createCellWithAllBorder(row3, 0, "Assinatura do colaborador", borders[6]);
 		createCellWithAllBorder(row3, 2, "________________________________________", borders[8]);
 		createCellWithAllBorder(row3, 4, "", borders[7]);
 		
 
-		Row row4 = sheet.createRow(40);
+		Row row4 = sheet.createRow(secondPartStart+3);
 		createCellWithAllBorder(row4, 0, "", borders[6]);
 		createCellWithAllBorder(row4, 4, "", borders[7]);
 		
 
-		Row row5 = sheet.createRow(41);
+		Row row5 = sheet.createRow(secondPartStart+4);
 		createCellWithAllBorder(row5, 0, "Assinatura secretária", borders[6]);
 		createCellWithAllBorder(row5, 2, "________________________________________", borders[8]);
 		createCellWithAllBorder(row5, 4, "", borders[7]);
 		
-		Row row6 = sheet.createRow(42);
+		Row row6 = sheet.createRow(secondPartStart+5);
 		createCellWithAllBorder(row6, 0, "", borders[6]);
 		createCellWithAllBorder(row6, 4, "", borders[7]);
 		
-		Row row7 = sheet.createRow(43);
+		Row row7 = sheet.createRow(secondPartStart+6);
 		createCellWithAllBorder(row7, 0, "Assinatura direção", borders[4]);
 		createCellWithAllBorder(row7, 1, "", borders[3]);
 		createCellWithAllBorder(row7, 2, "________________________________________", borders[3]);
