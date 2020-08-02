@@ -29,6 +29,16 @@ Se você está interessando somente em executar a aplicação, basta baixar o ar
 * As informações são salvas sempre no final da execução do programa em um arquivo **dados.txt** e esses dados são lidos sempre no ínicio do programa.
 * A principal utilidade da aplicação está em gerar uma planilha do Excel (**Folha gerada.xlsx**) com  base no mês e ano informado com todos os dias do mês e os respectivos horários que o funcionário teria que ir trabalhar, tendo como base somente o cronograma e os feriados inseridos. Sendo que é gerado uma planilha para cada funcionário.
 
+- - - -
+ 
+ ## Telas ##
+
+ ![Tela principal](imgs-preview/main.png)
+
+ ![Cadatro/Edição de funcionário](imgs-preview/add-editEmployee.png)
+ 
+ ![Adicionar/Editar feriado](imgs-preview/add-holiday.png)
+
 - - - - 
 
 ## Motivação ##

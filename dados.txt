@@ -1,15 +1,5 @@
 EMPLOYEE START
-Felype Aurélio Ganzert
-folga#folga#folga
-folga#folga#folga
-folga#folga#folga
-08:00 às 13:00#folga#folga
-folga#13:30 às 17:30#18:00 às 21:30
-08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
-08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
-EMPLOYEE END
-EMPLOYEE START
-Carla
+Bruno
 c08:00 às 12:00#13:30 às 18:30#folga
 cfolga#folga#folga
 folga#folga#folga
@@ -19,7 +9,7 @@ c08:00 às 12:00#13:30 às 17:30#18:00 às 21:30
 c08:00 às 12:00#13:30 às 18:00#18:030 às 21:30
 EMPLOYEE END
 EMPLOYEE START
-Milena
+Carla
 08:30 às 12:00#folga#folga
 folga#folga#folga
 folga#folga#folga
@@ -28,3 +18,6 @@ folga#13:30 às 17:30#18:00 às 21:00
  # # 
 08:00 às 12:00# # 
 EMPLOYEE END
+HOLIDAYS START
+2#feriado#feriado#feriado
+HOLIDAYS END
