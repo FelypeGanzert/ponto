@@ -37,6 +37,7 @@ public class ExcelApache {
 	private Font font;
 	private CellStyle cs;
 	private CellStyle styleCenter;
+	private CellStyle styleCenterBold;
 	private CellStyle styleLeft;
 	private CellStyle styleRight;
 
@@ -62,8 +63,6 @@ public class ExcelApache {
 
 		// Styles with aligns and all borders
 		Font fontToCenter = wb.createFont();
-		font.setFontHeightInPoints((short) 11);
-		font.setFontName("Calibri");
 		styleCenter = wb.createCellStyle();
 		styleCenter.setFont(fontToCenter);
 		styleCenter.setBorderBottom(BorderStyle.THIN);
@@ -76,11 +75,23 @@ public class ExcelApache {
 		styleCenter.setTopBorderColor(IndexedColors.BLACK.getIndex());
 		styleCenter.setVerticalAlignment(VerticalAlignment.CENTER);
 		styleCenter.setAlignment(HorizontalAlignment.CENTER);
+		
+		Font fontToCenterBold = wb.createFont();
+		fontToCenterBold.setBold(true);
+		styleCenterBold = wb.createCellStyle();
+		styleCenterBold.setFont(fontToCenterBold);
+		styleCenterBold.setBorderBottom(BorderStyle.THIN);
+		styleCenterBold.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+		styleCenterBold.setBorderLeft(BorderStyle.THIN);
+		styleCenterBold.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+		styleCenterBold.setBorderRight(BorderStyle.THIN);
+		styleCenterBold.setRightBorderColor(IndexedColors.BLACK.getIndex());
+		styleCenterBold.setBorderTop(BorderStyle.THIN);
+		styleCenterBold.setTopBorderColor(IndexedColors.BLACK.getIndex());
+		styleCenterBold.setVerticalAlignment(VerticalAlignment.CENTER);
+		styleCenterBold.setAlignment(HorizontalAlignment.CENTER);
 
-		// Styles with aligns and alll borders
 		Font fontToLeft = wb.createFont();
-		font.setFontHeightInPoints((short) 11);
-		font.setFontName("Calibri");
 		styleLeft = wb.createCellStyle();
 		styleLeft.setFont(fontToLeft);
 		styleLeft.setBorderBottom(BorderStyle.THIN);
@@ -94,10 +105,7 @@ public class ExcelApache {
 		styleLeft.setVerticalAlignment(VerticalAlignment.CENTER);
 		styleLeft.setAlignment(HorizontalAlignment.LEFT);
 
-		// Styles with aligns and alll borders
 		Font fontToRight = wb.createFont();
-		font.setFontHeightInPoints((short) 11);
-		font.setFontName("Calibri");
 		styleRight = wb.createCellStyle();
 		styleRight.setFont(fontToRight);
 		styleRight.setBorderBottom(BorderStyle.THIN);
@@ -181,8 +189,12 @@ public class ExcelApache {
 
 		Row firstRow = sheet.createRow(0);
 		createCellWithAllBorder(firstRow, 0, "Colaborador", styleLeft);
-		createCellWithAllBorder(firstRow, 1, employee.getName().toUpperCase(), styleCenter);
-		createCellWithAllBorder(firstRow, 6, "", borders[7]);
+		createCellWithAllBorder(firstRow, 1, employee.getName().toUpperCase(), styleCenterBold);
+		createCellWithAllBorder(firstRow, 2, "", styleCenter);
+		createCellWithAllBorder(firstRow, 3, "", styleCenter);
+		createCellWithAllBorder(firstRow, 4, "", styleCenter);
+		createCellWithAllBorder(firstRow, 5, "", styleCenter);
+		createCellWithAllBorder(firstRow, 6, "", styleCenter);
 		sheet.addMergedRegion(new CellRangeAddress(0, 0, 1, 6));
 
 		Row secondRow = sheet.createRow(1);
@@ -305,8 +317,8 @@ public class ExcelApache {
 		sheet.setColumnWidth(6, PixelUtil.pixel2WidthUnits(213)); // G
 
 		// Margins (have to be in inches)
-		sheet.setMargin(Sheet.LeftMargin, 0.511811); // 1,30 cm
-		sheet.setMargin(Sheet.RightMargin, 0.511811); // 1,30 cm
+		sheet.setMargin(Sheet.LeftMargin, 0.393701); // 1 cm
+		sheet.setMargin(Sheet.RightMargin, 0.393701); // 1 cm
 		sheet.setMargin(Sheet.TopMargin, 0.787402); // 2,00 cm
 		sheet.setMargin(Sheet.BottomMargin, 0.390551); // 1,50 cm
 		sheet.setMargin(Sheet.FooterMargin, 0);
