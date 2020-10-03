@@ -2,6 +2,9 @@
 O objetivo do projeto é gerar a folha de ponto com os horários preenchidos em uma planilha do Excel. Foi usado também para praticar conceitos de ler/escrever arquivos, utilizar a biblioteca ApachePOI e utilizar conhecimentos em JavaFx.
 
 - - - - 
+## Visualizar ##
+Para ter uma ídeia de como ficou a interface do projeto, você pode acessar:
+https://youtu.be/9zBqfpgEfy4
 
 ## Começando ##
 Para executar o projeto será necessário:
